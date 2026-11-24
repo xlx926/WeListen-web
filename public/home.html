@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeListen 音乐点播</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1><a href="/home.html">WeListen</a></h1>
+    <nav>
+      <a href="/home.html" class="nav-link active">首页</a>
+      <a href="/" class="nav-link" id="nav-login">登录</a>
+    </nav>
+    <span id="user-status">加载中...</span>
+  </header>
+
+  <main>
+    <section class="card player-card">
+      <h2>正在播放</h2>
+      <p id="now-playing" class="now-playing">未选择歌曲</p>
+      <audio id="audio-player" controls style="width:100%;margin-top:0.5rem"></audio>
+    </section>
+
+    <section class="card">
+      <h2>歌曲库</h2>
+      <div id="song-list" class="song-list">加载中...</div>
+    </section>
+
+    <section class="card">
+      <h2>我的播放记录</h2>
+      <div class="tabs inline-tabs">
+        <button class="tab active" data-history="all">全部</button>
+        <button class="tab" data-history="recent">最近播放</button>
+        <button class="tab" data-history="summary">播放汇总</button>
+      </div>
+      <div id="history-list" class="song-list">请先登录查看播放记录</div>
+    </section>
+  </main>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

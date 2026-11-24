@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0d0d14;
+  --foreground: #f0f0f5;
+  --card: #14141c;
+  --card-hover: #1a1a24;
+  --primary: #a855f7;
+  --primary-hover: #b76ee6;
+  --secondary: #1a1a24;
+  --secondary-foreground: #c4b5fd;
+  --muted-foreground: #9ca3af;
+  --border: #2a2a35;
+  --border-light: #3a3a45;
+  --input-background: #1a1a22;
+  --destructive: #ef4444;
+  --success: #22c55e;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: "Segoe UI", "Microsoft YaHei", sans-serif;
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", var(--font-body);
+  background: #f8f7ff;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #b0a8d0;
+  opacity: 1;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8b4fe;
+  border-radius: 3px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light);
+}
+
+input:focus,
+button:focus,
+a:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.song-item:hover {
+  background: var(--card-hover);
+}
+
+.progress-bar {
+  appearance: none;
+  background: var(--border);
+  height: 4px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.progress-bar:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+.progress-bar::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: none;
+}
+
+.volume-bar {
+  appearance: none;
+  background: var(--border);
+  height: 4px;
+  border-radius: 2px;
+  cursor: pointer;
+  width: 80px;
+}
+
+.volume-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+.volume-bar::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: none;
+}
+
+/* 网易云风格播放器动画 */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-slow.paused {
+  animation-play-state: paused;
+}
+
+@keyframes spin-vinyl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-vinyl {
+  animation: spin-vinyl 8s linear infinite;
+}
+
+/* 隐藏滚动条 */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* 播放器样式 */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #374151;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -4px;
+  background-color: #a855f7;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-track {
+  background: #374151;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  background-color: #a855f7;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+}
